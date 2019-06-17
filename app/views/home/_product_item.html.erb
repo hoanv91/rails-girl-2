@@ -1,0 +1,33 @@
+<div class="col-sm col-md-6 col-lg ftco-animate">
+  <div class="product">
+    <a href="<%= product_path(product) %>" class="img-prod"><img class="img-fluid" src="../../<%= product.image %>" alt="Colorlib Template">
+      <div class="overlay"></div>
+    </a>
+    <div class="text py-3 px-3">
+      <h3><a href="<%= product_path(product) %>"><%= product.name %></a></h3>
+      <div class="d-flex">
+        <div class="pricing">
+          <p class="price">
+            <span class="mr-2 price-dc">$<%= product.price %></span>
+          </p>
+        </div>
+        <div class="rating">
+          <p class="text-right">
+            <a href="#"><span class="ion-ios-star-outline"></span></a>
+            <a href="#"><span class="ion-ios-star-outline"></span></a>
+            <a href="#"><span class="ion-ios-star-outline"></span></a>
+            <a href="#"><span class="ion-ios-star-outline"></span></a>
+            <a href="#"><span class="ion-ios-star-outline"></span></a>
+          </p>
+        </div>
+      </div>
+      <form action="/cart_items" id="form-<%= product.id %>" class="cart-item-form" method="POST">
+        <input type="hidden" name="product_id" value="<%= product.id %>">
+        <input type="hidden" name="quantity" value="1">
+      </form>
+      <p class="bottom-area d-flex px-3">
+        <a href="javascript:{}" onclick="document.getElementById('form-<%= product.id %>').submit();" class="add-to-cart text-center py-2 mr-1"><span>Add to cart<i class="ion-ios-add ml-1"></i></span></a>
+      </p>
+    </div>
+  </div>
+</div>

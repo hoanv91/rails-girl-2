@@ -1,0 +1,65 @@
+<div class="hero-wrap hero-bread" style="background-image: url('../../images/bg_6.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9 ftco-animate text-center">
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Billing</span></p>
+            <h1 class="mb-0 bread">Billing</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<p id="notice"><%= notice %></p>
+<section class="ftco-section ftco-cart">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 ftco-animate">
+        <h3 class="heading">Billing Info</h3>
+        <br/>
+        <ul class="categories">
+          <li>Customer <span style="float: right; padding-right: 10px;"><%= @order.first_name.to_s + ' ' + @order.last_name.to_s %> </span></li>
+          <li>Address <span style="float: right; padding-right: 10px;"><%= @order.address.to_s + ', ' + @order.state.to_s + ', ' + @order.city.to_s + ', ' + @order.postcode.to_s %></span></li>
+          <li>Phone <span style="float: right; padding-right: 10px;"><%= @order.phone.to_s %></span></li>
+          <li>Email <span style="float: right; padding-right: 10px;"><%= @order.email.to_s %></span></li>
+          <li>Payment Method <span style="float: right; padding-right: 10px;"><%= @order.payment_method.upcase %></span></li>
+          <li>Total <span style="float: right; padding-right: 10px;">$<%= @order.total %></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 ftco-animate">
+        <div class="cart-list">
+          <table class="table">
+            <thead class="thead-primary">
+              <tr class="text-center">
+                <th>&nbsp;</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            <% @order.cart.cart_items.each do |item| %>
+              <tr class="text-center">
+                <td class="image-prod">
+                  <div class="img" style="background-image:url(../<%= item.product.image %>);"></div>
+                </td>
+                <td class="product-name">
+                  <h3><%= item.product.name %></h3>
+                  <p><%= truncate(item.product.description, length: 100) %></p>
+                </td>
+                <td class="price">$<%= item.product.price %></td>
+                <td class="quantity"><%= item.quantity %></td>
+                <td class="total">$<%= item.quantity * item.product.price %></td>
+              </tr><!-- END TR-->
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
