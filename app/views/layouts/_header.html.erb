@@ -37,12 +37,17 @@
             <a class="dropdown-item" href="<%= new_order_path %>">Checkout</a>
           </div>
         </li>
-        <li class="nav-item"><a href="<%= orders_path%>" class="nav-link">Orders History</a></li>
+        <li class="nav-item"><a href="<%= orders_path %>" class="nav-link">Orders History</a></li>
+        <li class="nav-item"><a href="<%= list_products_path %>" class="nav-link">Products Management</a></li>
         <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
         <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
         <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
         <li class="nav-item cta cta-colored"><a href="<%= cart_path(@current_cart) %>" class="nav-link"><span class="icon-shopping_cart"></span>[<%= @current_cart.cart_items.count %>]</a></li>
-
+        <% if current_user %>
+          <li class="nav-item"><a href="<%= destroy_user_session_path %>" class="nav-link" data-method="delete">Sign-out</a></li>
+        <% else %>
+          <li class="nav-item"><a href="<%= new_user_session_path %>" class="nav-link">Sign-in</a></li>
+        <% end %>
       </ul>
     </div>
   </div>

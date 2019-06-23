@@ -1,6 +1,6 @@
 <div class="col-sm-6 col-md-6 col-lg-4 ftco-animate">
   <div class="product">
-    <a href="<%= product_path(product) %>" class="img-prod"><img class="img-fluid" src="<%= product.image %>" alt="Colorlib Template">
+    <a href="<%= product_path(product) %>" class="img-prod"><img class="img-fluid" src="../<%= product.image %>" alt="Colorlib Template">
       <div class="overlay"></div>
     </a>
     <div class="text py-3 px-3">
@@ -19,13 +19,10 @@
           </p>
         </div>
       </div>
-      <form action="/cart_items" id="item-form-<%= product.id %>" class="item-form" method="POST">
-        <input type="hidden" name="product_id" value="<%= product.id %>">
-        <input type="hidden" name="quantity" value="1">
-        <p class="bottom-area d-flex px-3">
-          <a href="javascript:{}" onclick="document.getElementById('item-form-<%= product.id %>').submit();" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
-        </p>
-      </form>
+      <p class="bottom-area d-flex px-3">
+        <a href="<%= edit_product_path(product) %>" class="buy-now text-center py-2">Edit</a>
+        <a href="<%= product_path(product) %>" class="buy-now text-center py-2" data-method="delete" data-confirm="Are you sure?">Delete</a>
+      </p>
     </div>
   </div>
 </div>

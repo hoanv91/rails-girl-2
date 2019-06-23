@@ -1,0 +1,26 @@
+<div class="hero-wrap hero-bread" style="background-image: url('../images/bg_6.jpg');">
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center">
+      <div class="col-md-9 ftco-animate text-center">
+        <p class="breadcrumbs"><span class="mr-2"><a href="/">Home</a></span> <span>Products</span></p>
+        <h1 class="mb-0 bread">Collection Products</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p id="notice"><%= notice %></p>
+<section class="ftco-section bg-light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-lg-10 order-md-last">
+        <div class="row">
+          <% @products.each do |product| %>
+            <%= render partial: 'product_item_mgm', locals: { product: product } %>
+          <% end %>
+        </div>
+      </div>
+      <%= render partial: 'sidebar' %>
+    </div>
+  </div>
+</section>
