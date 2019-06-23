@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # include SessionsHelper
 
   before_action :set_cart
+  skip_before_action :verify_authenticity_token
 
   private
 

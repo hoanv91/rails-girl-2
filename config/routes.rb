@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :orders
-  resources :cart_items
+  resources :cart_items, only: [:create, :destroy]
   resources :carts
   resources :products
   root to: 'home#index'

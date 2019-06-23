@@ -62,30 +62,32 @@
         </div>
       </div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
-        <div class="cart-total mb-3">
-          <h3>Cart Totals</h3>
-          <p class="d-flex">
-            <span>Subtotal</span>
-            <span>$<%= @cart.sub_total %></span>
-          </p>
-          <p class="d-flex">
-            <span>Delivery</span>
-            <span>$0.00</span>
-          </p>
-          <p class="d-flex">
-            <span>Discount</span>
-            <span>$0.00</span>
-          </p>
-          <hr>
-          <p class="d-flex total-price">
-            <span>Total</span>
-            <span>$<%= @cart.sub_total %></span>
-          </p>
+    <% if @current_cart.cart_items.count > 0 %>
+      <div class="row justify-content-center">
+        <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
+          <div class="cart-total mb-3">
+            <h3>Cart Totals</h3>
+            <p class="d-flex">
+              <span>Subtotal</span>
+              <span>$<%= @cart.sub_total %></span>
+            </p>
+            <p class="d-flex">
+              <span>Delivery</span>
+              <span>$0.00</span>
+            </p>
+            <p class="d-flex">
+              <span>Discount</span>
+              <span>$0.00</span>
+            </p>
+            <hr>
+            <p class="d-flex total-price">
+              <span>Total</span>
+              <span>$<%= @cart.sub_total %></span>
+            </p>
+          </div>
+          <p class="text-center"><a href="<%= new_order_path %>" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
         </div>
-        <p class="text-center"><a href="<%= new_order_path %>" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
       </div>
-    </div>
+    <% end %>
   </div>
 </section>

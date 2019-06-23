@@ -71,7 +71,7 @@ class CartItemsController < ApplicationController
   #   def cart_item_params
   #     params.require(:cart_item).permit(:product_id, :cart_id, :quantity)
   #   end
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token
   def create
     # Find associated product and current cart
     chosen_product = Product.find(params[:product_id])
